@@ -1,0 +1,25 @@
+{
+  "name": "quanticcloud",
+  "version": "1.0.0",
+  "description": "Quantic Cloud",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantumSheep/quanticcloud.git"
+  },
+  "author": "QuantumSheep",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuantumSheep/quanticcloud/issues"
+  },
+  "homepage": "https://github.com/QuantumSheep/quanticcloud#readme",
+  "dependencies": {
+    "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.4"
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="quanticCloud">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quantic Cloud</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/assets/js/explorer.js"></script>
+</head>
+
+<body ng-controller="Explorer">
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <ul>
+            <li ng-repeat="file in files">
+                <span>{{file.type}}</span>
+                <p>{{file.name}}</p>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
