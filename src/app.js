@@ -11,7 +11,6 @@ http.createServer((req, res) => {
         .handle(['GET'], '/assets/{asset*}', params => {
             fs.readFile(path.resolve(`assets/${params["asset"]}`), (err, data) => {
                 if (!err) {
-                    console.log(mime.lookup(path.resolve(`assets/${params["asset"]}`)));
                     res.writeHead(200, {
                         'Content-Type': `${mime.lookup(path.resolve(`assets/${params["asset"]}`))}; charset=utf-8`,
                         'Content-Length': data.length

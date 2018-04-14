@@ -54,7 +54,7 @@
             <ul class="tree">
                 <li ng-repeat="file in files">
                     <input type="checkbox" id="c{{ filei }}" />
-                    <label for="c{{ filei }}" class="tree_label">{{ file.name }} {{ filei }}</label>
+                    <label for="c{{ filei }}" class="tree_label">{{ file.name }}</label>
                     <ul ng-init="items = file.childs; filei = $index;" ng-include="'/filetree'"></ul>
                 </li>
             </ul>
