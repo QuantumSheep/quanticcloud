@@ -166,10 +166,6 @@ ul.filelist li a img {
     display: block;
 }
 
-/* ————————————————————–
-  Tree rows
-*/
-
 .tree li {
     line-height: 1.2;
     position: relative;
@@ -185,10 +181,6 @@ ul.filelist li a img {
     padding-bottom: 0;
 }
 
-/* ————————————————————–
-  Tree labels
-*/
-
 .tree_label {
     position: relative;
     display: inline-block;
@@ -201,10 +193,6 @@ label.tree_label {
 label.tree_label:hover {
     color: #666;
 }
-
-/* ————————————————————–
-  Tree expanded icon
-*/
 
 label.tree_label:before {
     background: #000;
@@ -224,10 +212,6 @@ label.tree_label:before {
 :checked~label.tree_label:before {
     content: '–';
 }
-
-/* ————————————————————–
-  Tree branches
-*/
 
 .tree li:before {
     position: absolute;

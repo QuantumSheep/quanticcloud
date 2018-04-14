@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const fileType = require('file-type');
+const mime = require('mime-types');
 
 const walk = require('./walk');
 const router = new(require('./router')).Router;
@@ -11,8 +11,9 @@ http.createServer((req, res) => {
         .handle(['GET'], '/assets/{asset*}', params => {
             fs.readFile(path.resolve(`assets/${params["asset"]}`), (err, data) => {
                 if (!err) {
+                    console.log(mime.lookup(path.resolve(`assets/${params["asset"]}`)));
                     res.writeHead(200, {
-                        'Content-Type': `${fileType(data)}; charset=utf-8`,
+                        'Content-Type': `${mime.lookup(path.resolve(`assets/${params["asset"]}`))}; charset=utf-8`,
                         'Content-Length': data.length
                     });
 
