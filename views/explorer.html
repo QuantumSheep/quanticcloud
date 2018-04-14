@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quantic Cloud</title>
 
+    <link rel="icon" href="/assets/favicon.ico">
+
+    <link rel="stylesheet" href="/assets/css/grid.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -18,19 +21,55 @@
         <nav>
             <ul>
                 <li>
-                    <a href=""></a>
+                    <a href="/">Quantic Cloud</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/">My files</a>
+                </li>
+                <li>
+                    <a href="/">Disconnect</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <section>
+    <div class="rmenu hide" id="rmenu">
         <ul>
-            <li ng-repeat="file in files">
-                <span>{{file.type}}</span>
-                <p>{{file.name}}</p>
+            <li>
+                <a href="#">New folder</a>
+            </li>
+
+            <li>
+                <a href="#">New file</a>
+            </li>
+
+            <li>
+                <a href="#">Sort by</a>
             </li>
         </ul>
-    </section>
+    </div>
+    <main>
+        <aside>
+            <ul class="tree">
+                <li ng-repeat="file in files">
+                    <input type="checkbox" id="c{{ filei }}" />
+                    <label for="c{{ filei }}" class="tree_label">{{ file.name }} {{ filei }}</label>
+                    <ul ng-init="items = file.childs; filei = $index;" ng-include="'/filetree'"></ul>
+                </li>
+            </ul>
+        </aside>
+        <section>
+            <ul class="filelist">
+                <li ng-repeat="file in files" class="col-md-1">
+                    <a href="/explorer">
+                        <img src="/assets/img/{{file.ext != null ? 'fileicons/' + file.ext : 'folder'}}.svg">
+                        <span>{{file.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 
 </html>

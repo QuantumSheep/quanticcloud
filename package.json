@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/QuantumSheep/quanticcloud#readme",
   "dependencies": {
+    "file-type": "^7.6.0",
     "socketio": "^1.0.0"
   },
   "devDependencies": {
