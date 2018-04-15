@@ -62,8 +62,8 @@ class Router {
 
             const client_uri = this.req.url.split('?')[0].split('/');
 
-            if (client_uri[client_uri.length - 1] == "") {
-                client_uri = client_uri.splice(--client_uri.length, 1);
+            if (client_uri[client_uri.length - 1] == '') {
+                client_uri.splice(--client_uri.length, 1);
             }
 
             new Promise((resolve, reject) => {

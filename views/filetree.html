@@ -1,6 +1,0 @@
-<li ng-repeat="item in items" ng-init="filei = filei; $parent.filei = $parent.filei + 1;">
-    <span ng-if="item.type != 'directory'" class="tree_label">{{ item.name }}</span>
-    <input ng-if="item.type == 'directory'" ng-init="filei = filei + 1; $parent.filei = $parent.filei + 1;" type="checkbox" id="c-{{ filei }}">
-    <label ng-if="item.type == 'directory'" for="c-{{ filei }}" class="tree_label">{{ item.name }} {{ filei }}</label>
-    <ul ng-if="item.type == 'directory' && item.childs" ng-init="items = item.childs;" ng-include="'/filetree'"></ul>
-</li>
