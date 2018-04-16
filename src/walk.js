@@ -5,7 +5,7 @@ const path = require('path');
  * Recursively walk in a directory
  * 
  * @param {string} dir 
- * @param {(err: NodeJS.ErrnoException, result?: {name: string, type: string, childs: []}[]) => any} callback 
+ * @param {(err: NodeJS.ErrnoException, result?: {name: string, type: string, childs: []}[]) => void} callback 
  * @param {number} limit
  */
 module.exports = function walk(dir, callback, limit = -1) {

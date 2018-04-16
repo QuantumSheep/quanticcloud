@@ -30,7 +30,7 @@ class Router {
      * Define a get route
      * 
      * @param {string} path 
-     * @param {(result: string[]) => any} callback 
+     * @param {(result: string[]) => void} callback 
      * @returns {Router}
      */
     handle(methods, path, callback) {
