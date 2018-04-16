@@ -4,7 +4,8 @@
   "description": "Quantic Cloud",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./",
+    "test": "node node_modules/mocha/bin/mocha ./tests/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "socketio": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^9.6.4"
+    "@types/node": "^9.6.4",
+    "mocha": "^5.1.0"
   }
 }

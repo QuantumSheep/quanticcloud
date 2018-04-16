@@ -50,7 +50,7 @@ class Router {
      */
     test(methods, path) {
         return new Promise((resolve, reject) => {
-            if (this.routed || methods.indexOf(this.req.method) === -1) {
+            if (this.routed || methods.indexOf(this.req.method) == -1) {
                 return reject(false);
             }
 
@@ -72,7 +72,7 @@ class Router {
 
                 for (let i = 0; i < parts.length; i++) {
                     if (parts[i][0] != null && parts[i][0] == '{') {
-                        if (parts[i][parts[i].length - 2] === '*') {
+                        if (parts[i][parts[i].length - 2] == '*') {
                             const varname = parts[i].replace(/\{(.*?)\*\}/g, "$1");
 
                             vars[varname] = "";
@@ -93,7 +93,7 @@ class Router {
                         return reject(false);
                     }
 
-                    if (i + 1 === parts.length) {
+                    if (i + 1 == parts.length) {
                         if (!infinite && parts.length < client_uri.length) {
                             reject(false);
                         } else {

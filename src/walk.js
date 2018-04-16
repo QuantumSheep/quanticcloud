@@ -18,14 +18,14 @@ module.exports = function walk(dir, callback, limit = -1) {
 
         if (!pending) return callback(null, result);
 
-        files.forEach((file, i) => {
-            const filepath = path.resolve(dir, file);
-            
+        for (let i in files) {
+            const filepath = path.resolve(dir, files[i]);
+
             fs.stat(filepath, (err, stats) => {
-                if(stats && stats.isDirectory()) {
+                if (stats && stats.isDirectory()) {
                     result[i] = {
                         type: "directory",
-                        name: file,
+                        name: files[i],
                         childs: []
                     };
 
@@ -35,17 +35,19 @@ module.exports = function walk(dir, callback, limit = -1) {
                         if (!--pending) callback(null, result);
                     });
                 } else {
-                    const fileparts = file.split('.');
+                    const fileparts = files[i].split('.');
+
+                    const ext = fileparts.length > 1 ? fileparts[fileparts.length - 1] : "";
 
                     result.push({
                         type: "file",
-                        name: file,
-                        ext: fileparts[fileparts.length - 1]
+                        name: files[i],
+                        ext: ext
                     });
 
                     if (!--pending) callback(null, result);
                 }
             });
-        });
+        }
     });
 };
