@@ -2,7 +2,6 @@ const assert = require('assert');
 
 const walk = require('../src/walk');
 const path = require('path');
-const fs = require('fs');
 
 const expected = [{
         type: 'directory',
@@ -11,37 +10,20 @@ const expected = [{
             type: 'directory',
             name: 'directory1-2',
             childs: [{
-                    type: 'directory',
-                    name: 'directory1-3',
-                    childs: []
-                },
-                {
-                    type: 'file',
-                    name: 'file1-3',
-                    ext: ''
-                }
-            ]
+                type: 'file',
+                name: 'file1-3',
+                ext: ''
+            }]
         }]
     },
     {
         type: 'directory',
         name: 'directory2',
         childs: [{
-                type: 'directory',
-                name: 'directory2-2',
-                childs: []
-            },
-            {
-                type: 'file',
-                name: 'file2-1.txt',
-                ext: 'txt'
-            }
-        ]
-    },
-    {
-        type: 'directory',
-        name: 'directory3',
-        childs: []
+            type: 'file',
+            name: 'file2-1.txt',
+            ext: 'txt'
+        }]
     },
     {
         type: 'file',
