@@ -15,6 +15,7 @@ quanticCloud.controller('Explorer', ($scope, $http) => {
 
     $http.get(`/get`).then(response => {
         $scope.tree = response.data;
+        MicroModal.show('modal-1');
     });
 
     document.getElementById("explorer").addEventListener('contextmenu', e => {

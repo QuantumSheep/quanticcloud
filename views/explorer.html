@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Quantic Cloud</title>
 
     <link rel="icon" href="/assets/favicon.ico">
 
     <link rel="stylesheet" href="/assets/css/grid.css">
+    <link rel="stylesheet" href="/assets/css/modal.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -26,6 +28,29 @@
 </head>
 
 <body ng-controller="Explorer">
+    <div class="modal micromodal-slide" id="modal-newfile" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-newfile-title">
+                <div class="modal__header">
+                    <h2 class="modal__title" id="modal-newfile-title">
+                        Micromodal
+                    </h2>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </div>
+                <div class="modal__content" id="modal-newfile-content">
+                    <p>
+                        Try hitting the
+                        <code>tab</code> key and notice how the focus stays within the modal itself. Also,
+                        <code>esc</code> to close modal.
+                    </p>
+                </div>
+                <div class="modal__footer">
+                    <button class="modal__btn modal__btn-primary">Continue</button>
+                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <header>
         <nav>
             <ul>
@@ -57,13 +82,13 @@
             <div class="rmenu hide" id="rmenu">
                 <ul>
                     <li>
-                        <a href="#">New folder</a>
+                        <a href="#!" id="newfolder">New folder</a>
                     </li>
                     <li>
-                        <a href="#">New file</a>
+                        <a href="#!" id="newfile">New file</a>
                     </li>
                     <li>
-                        <a href="#">Sort by</a>
+                        <a href="#!">Sort by</a>
                     </li>
                 </ul>
             </div>
@@ -82,6 +107,8 @@
             </div>
         </section>
     </main>
+
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 </body>
 
 </html>

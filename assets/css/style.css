@@ -108,6 +108,10 @@ ul.filelist li a img {
     display: none;
 }
 
+button, a:hover {
+    cursor: pointer;
+}
+
 .rmenu {
     z-index: 9999;
     position: absolute;
