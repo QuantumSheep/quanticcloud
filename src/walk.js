@@ -30,7 +30,7 @@ module.exports = function walk(dir, callback, limit = -1) {
                     };
 
                     walk(filepath, (err, res) => {
-                        result[i].childs = result[i].childs.concat(res);
+                        result[i].childs = result[i].childs = res;
 
                         if (!--pending) callback(null, result);
                     });

@@ -1,21 +1,45 @@
 const quanticCloud = angular.module('quanticCloud', []);
 
+const explorerHistory = [];
+
 quanticCloud.controller('Explorer', ($scope, $http) => {
     let isMenuActive = false;
     $scope.currentlocation = window.location.pathname.replace(/\/*explorer\/*/gi, '');
 
-    $http.get(`/get/${window.location.pathname.replace(/\/*explorer\/*/gi, '')}`).then(response => {
-        if (Array.isArray(response.data)) {
-            $scope.files = response.data;
-        } else {
-            $scope.files = null;
-            $scope.filedata = response.data;
+    $scope.explore = (dir, updateHistory = true, e = null) => {
+        if(e) {
+            e.preventDefault();
+            e.stopPropagation();
         }
-    });
+
+        if (dir) {
+            console.log(`explorer${dir}`);
+
+            if(updateHistory) {
+                history.pushState({
+                    "pageTitle": document.title
+                }, "", `explorer${dir}`);
+    
+                explorerHistory.push($scope.currentlocation);
+    
+                $scope.currentlocation = dir;
+            }
+
+            $http.get(`/get/${dir.replace(/\/*explorer\/*/gi, '')}`).then(response => {
+                if (Array.isArray(response.data)) {
+                    $scope.files = response.data;
+                } else {
+                    $scope.files = null;
+                    $scope.filedata = response.data;
+                }
+            });
+        }
+    }
+
+    $scope.explore(window.location.pathname, false);
 
     $http.get(`/get`).then(response => {
         $scope.tree = response.data;
-        MicroModal.show('modal-1');
     });
 
     document.getElementById("explorer").addEventListener('contextmenu', e => {
@@ -65,3 +89,9 @@ quanticCloud.controller('Explorer', ($scope, $http) => {
         }
     }
 });
+
+window.onpopstate = () => {
+    if (explorerHistory[explorerHistory.length - 1] != null) {
+        history.go(-1);
+    }
+};

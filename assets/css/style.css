@@ -78,6 +78,7 @@ ul.filelist {
     list-style: none;
     height: 100%;
     width: 100%;
+    user-select: none;
 }
 
 ul.filelist li {
