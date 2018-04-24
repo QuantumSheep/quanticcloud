@@ -19,7 +19,7 @@ quanticCloud.controller('Explorer', ($scope, $http) => {
                 history.pushState({
                     "pageTitle": document.title
                 }, "", `explorer${dir}`);
-    
+
                 explorerHistory.push($scope.currentlocation);
     
                 $scope.currentlocation = dir;

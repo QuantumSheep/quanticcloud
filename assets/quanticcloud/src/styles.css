@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+* {
+    box-sizing: border-box;
+    transition: all .3s;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #FCFCFC;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    background-color: #2c2c2c;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav ul {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li:hover {
+    background-color: #393939;
+}
+
+header nav a {
+    opacity: 0.8;
+    color: #fcfcfc;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header nav a:hover {
+    opacity: 1;
+}
+
+main {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: row;
+}
+
+aside {
+    width: 400px;
+    background: #b9b9b9;
+    height: 100%;
+}
+
+main section {
+    width: 100%;
+}
+
+ul.filelist {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+ul.filelist li {
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+ul.filelist li a {
+    display: block;
+    color: #2c2c2c;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    word-break: break-all;
+}
+
+ul.filelist li a:hover {
+    background-color: #e7e7e7;
+}
+
+ul.filelist li a img {
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+button, a:hover {
+    cursor: pointer;
+}
+
+.rmenu {
+    z-index: 9999;
+    position: absolute;
+    background-color: #fbfbfb;
+}
+
+.rmenu,
+.rmenu ul {
+    border-radius: 3px;
+}
+
+.rmenu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid;
+    border-color: #9c9c9c;
+    background-color: #fefefe;
+    width: 180px;
+    box-shadow: 2px 2px 5px rgb(117, 117, 117);
+}
+
+.rmenu li {
+    list-style: none;
+}
+
+.rmenu a {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: block;
+    width: 100%;
+    color: rgb(22, 22, 22);
+}
+
+.rmenu a:hover {
+    background-color: #e4e4e4;
+}
+
+@media(max-width: 748px) {
+    aside {
+        width: 0;
+    }
+    .tree {
+        transform: translateX(-400px);
+    }
+}
+
+.tree {
+    margin: 1em;
+}
+
+.tree input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.tree input~ul {
+    display: none;
+    padding: 0;
+}
+
+.tree input:checked~ul {
+    display: block;
+}
+
+.tree li {
+    line-height: 1.2;
+    position: relative;
+    padding: 0 0 1em 1em;
+    list-style: none;
+}
+
+.tree ul li {
+    padding: 1em 0 0 1em;
+}
+
+.tree>li:last-child {
+    padding-bottom: 0;
+}
+
+.tree_label {
+    position: relative;
+    display: inline-block;
+}
+
+label.tree_label {
+    cursor: pointer;
+}
+
+label.tree_label:hover {
+    color: #666;
+}
+
+label.tree_label:before {
+    background: #000;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    float: left;
+    margin: 0 1em 0 -2em;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    content: '+';
+    text-align: center;
+    line-height: .9em;
+}
+
+:checked~label.tree_label:before {
+    content: '–';
+}
+
+.tree li:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -.5em;
+    display: block;
+    width: 0;
+    border-left: 1px solid #777;
+    content: "";
+}
+
+.tree_label:after {
+    position: absolute;
+    top: 0;
+    left: -1.5em;
+    display: block;
+    height: 0.5em;
+    width: 1em;
+    border-bottom: 1px solid rgb(102, 35, 35);
+    border-left: 1px solid #777;
+    border-radius: 0 0 0 .3em;
+    content: '';
+}
+
+label.tree_label:after {
+    border-bottom: 0;
+}
+
+:checked~label.tree_label:after {
+    border-radius: 0 .3em 0 0;
+    border-top: 1px solid #777;
+    border-right: 1px solid #777;
+    border-bottom: 0;
+    border-left: 0;
+    bottom: 0;
+    top: 0.5em;
+    height: auto;
+}
+
+.tree li:last-child:before {
+    height: 1em;
+    bottom: auto;
+}
+
+.tree>li:last-child:before {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}

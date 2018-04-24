@@ -1,0 +1,39 @@
+<main>
+  <aside>
+      <ul class="tree">
+          <li ng-repeat="file in tree">
+              <input type="checkbox" id="c{{ filei }}" />
+              <label for="c{{ filei }}" class="tree_label">{{ file.name }}</label>
+              <ul ng-init="items = file.childs; filei = $index;" ng-include="'filetree'"></ul>
+          </li>
+      </ul>
+  </aside>
+  <section id="explorer">
+      <div class="rmenu hide" id="rmenu">
+          <ul>
+              <li>
+                  <a href="#!" id="newfolder">New folder</a>
+              </li>
+              <li>
+                  <a href="#!" id="newfile">New file</a>
+              </li>
+              <li>
+                  <a href="#!">Sort by</a>
+              </li>
+          </ul>
+      </div>
+      <div class="d-flex flex-column">
+          <div ng-if="!filedata.error">
+              {{ filedata.data }}
+          </div>
+          <ul ng-if="files.length > 0" class="filelist">
+              <li ng-repeat="file in files" class="col-lg-1 col-md-2 col-sm-3 col-xs-3">
+                  <span ng-click="explore($event.target.parentElement.pathname, true, $event);">
+                      <img src="/assets/img/{{file.ext != null ? 'fileicons/' + file.ext : 'folder'}}.svg">
+                      <span>{{file.name}}</span>
+                  </span>
+              </li>
+          </ul>
+      </div>
+  </section>
+</main>

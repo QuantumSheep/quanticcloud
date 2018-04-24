@@ -98,10 +98,10 @@
                 </div>
                 <ul ng-if="files.length > 0" class="filelist">
                     <li ng-repeat="file in files" class="col-lg-1 col-md-2 col-sm-3 col-xs-3">
-                        <a href="{{ currentlocation }}/{{ file.name }}" ng-click="explore($event.target.parentElement.pathname, true, $event);">
+                        <span ng-click="explore($event.target.parentElement.pathname, true, $event);">
                             <img src="/assets/img/{{file.ext != null ? 'fileicons/' + file.ext : 'folder'}}.svg">
                             <span>{{file.name}}</span>
-                        </a>
+                        </span>
                     </li>
                 </ul>
             </div>
