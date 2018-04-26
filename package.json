@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Quantic Cloud",
   "scripts": {
+    "install": "cd client && npm install && cd ../server && npm install && cd ..",
     "build": "cd client && ng build && cd ..",
     "build:watch": "cd client && ng build --watch && cd ..",
     "start": "npx pm2 start process.json",
