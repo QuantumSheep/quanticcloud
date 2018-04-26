@@ -1,0 +1,29 @@
+{
+  "name": "quanticcloud-server",
+  "version": "1.0.0",
+  "description": "Quantic Cloud",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node ./",
+    "test": "node node_modules/mocha/bin/mocha ./tests/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantumSheep/quanticcloud.git"
+  },
+  "author": "QuantumSheep",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuantumSheep/quanticcloud/issues"
+  },
+  "homepage": "https://github.com/QuantumSheep/quanticcloud#readme",
+  "dependencies": {
+    "mime-types": "^2.1.18",
+    "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.7.4",
+    "@types/node": "^9.6.4",
+    "mocha": "^5.1.0"
+  }
+}

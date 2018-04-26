@@ -2,10 +2,13 @@
   "name": "quanticcloud",
   "version": "1.0.0",
   "description": "Quantic Cloud",
-  "main": "src/app.js",
   "scripts": {
-    "start": "node ./",
-    "test": "node node_modules/mocha/bin/mocha ./tests/**/*.js"
+    "build": "cd client && ng build && cd ..",
+    "build:watch": "cd client && ng build --watch && cd ..",
+    "start": "npx pm2 start process.json",
+    "stop": "npx pm2 stop process.json",
+    "restart": "npx pm2 restart process.json",
+    "delete": "npx pm2 delete process.json"
   },
   "repository": {
     "type": "git",
@@ -18,12 +21,6 @@
   },
   "homepage": "https://github.com/QuantumSheep/quanticcloud#readme",
   "dependencies": {
-    "mime-types": "^2.1.18",
-    "socketio": "^1.0.0"
-  },
-  "devDependencies": {
-    "@angular/cli": "^1.7.4",
-    "@types/node": "^9.6.4",
-    "mocha": "^5.1.0"
+    "pm2": "^2.10.2"
   }
 }

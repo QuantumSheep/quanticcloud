@@ -1,0 +1,14 @@
+{
+    "apps": [{
+            "name": "qcclient",
+            "cwd": "client",
+            "script": "app.js"
+        },
+        {
+            "name": "qcserver",
+            "cwd": "server",
+            "script": "src/app.js",
+            "watch": true
+        }
+    ]
+}
