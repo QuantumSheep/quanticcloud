@@ -9,6 +9,10 @@
             "cwd": "server",
             "script": "src/app.js",
             "watch": true
+        },
+        {
+            "name": "qcproxy",
+            "script": "proxy.js"
         }
     ]
 }

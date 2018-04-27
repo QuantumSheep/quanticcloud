@@ -1,7 +1,4 @@
 const http = require('http');
-const {
-    ServerResponse
-} = require('http');
 
 const fs = require('fs');
 const path = require('path');
@@ -14,7 +11,7 @@ const router = new(require('./router')).Router;
  * Send a file with the right mime type
  * 
  * @param {string} filepath 
- * @param {ServerResponse} res 
+ * @param {http.ServerResponse} res 
  */
 function provideFile(filepath, res) {
     fs.readFile(filepath, (err, data) => {
@@ -47,6 +44,8 @@ http.createServer((req, res) => {
 
         .handle(["GET"], "/get/{path*}", params => {
             const filepath = path.resolve(`files${params["path"]}`);
+
+            console.log(filepath);
 
             fs.stat(filepath, (err, stats) => {
                 if (err == null) {
@@ -100,4 +99,4 @@ http.createServer((req, res) => {
                 }
             });
         });
-}).listen(800);
+}).listen(201);

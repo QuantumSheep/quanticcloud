@@ -1,0 +1,13 @@
+.filelist li:hover {
+    background-color: #00000021;
+}
+
+.filelist li {
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.filelist li {
+    text-align: center;
+}
