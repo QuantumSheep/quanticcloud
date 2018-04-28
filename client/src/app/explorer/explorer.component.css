@@ -1,13 +1,39 @@
-.filelist li:hover {
-    background-color: #00000021;
+ul.filelist {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    user-select: none;
 }
 
-.filelist li {
+ul.filelist li {
+    display: inline-block;
+    vertical-align: top;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
+    text-align: center;
 }
 
-.filelist li {
+ul.filelist li a {
+    display: block;
+    color: #2c2c2c;
+    text-decoration: none;
     text-align: center;
+    padding: 10px;
+    margin: 5px;
+    word-break: break-all;
+}
+
+ul.filelist li a:hover {
+    background-color: #e7e7e7;
+}
+
+ul.filelist li a img {
+    width: 100%;
+}
+
+.filelist li:hover {
+    background-color: #00000021;
 }

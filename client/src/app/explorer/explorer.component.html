@@ -1,33 +1,23 @@
 <main>
-  <aside>
-      <filestree></filestree>
-  </aside>
-  <section id="explorer">
-      <div class="rmenu hide" id="rmenu">
-          <ul>
-              <li>
-                  <a href="#!" id="newfolder">New folder</a>
-              </li>
-              <li>
-                  <a href="#!" id="newfile">New file</a>
-              </li>
-              <li>
-                  <a href="#!">Sort by</a>
-              </li>
-          </ul>
-      </div>
-      <div class="d-flex flex-column">
-        <div ng-if="!filedata.error">
-            <!-- {{ filedata.data }} -->
+    <aside>
+        <filestree></filestree>
+    </aside>
+    <section (contextmenu)="onRightClick($event)" id="explorer">
+        <div *ngIf="contextmenu==true">
+            <contextmenu [x]="contextmenuX" [y]="contextmenuY"></contextmenu>
         </div>
-        <ul ng-if="files.length > 0" class="    ">
-            <li *ngFor="let file of files" class="col-lg-1 col-md-2 col-sm-3 col-xs-3">
-                <span (click)="enterFile(path + '/' + file.name)">
-                    <img src="/assets/img/{{file.ext != null ? 'fileicons/' + file.ext : 'folder'}}.svg">
-                    <span>{{file.name}}</span>
-                </span>
-            </li>
-        </ul>
-    </div>
-  </section>
+        <div class="d-flex flex-column">
+            <div ng-if="!filedata.error">
+                <!-- {{ filedata.data }} -->
+            </div>
+            <ul ng-if="files.length > 0" class="filelist">
+                <li *ngFor="let file of files" class="col-lg-1 col-md-2 col-sm-3 col-xs-3">
+                    <span (click)="enterFile(path + '/' + file.name)">
+                        <img src="/assets/img/{{file.ext != null ? 'fileicons/' + file.ext : 'folder'}}.svg">
+                        <span>{{file.name}}</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
 </main>

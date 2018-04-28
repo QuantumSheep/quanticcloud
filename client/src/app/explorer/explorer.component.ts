@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ExplorerService } from './explorer.service';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-explorer',
@@ -16,13 +17,37 @@ export class ExplorerComponent implements OnInit {
   files: Object;
   path: string;
 
-  constructor(private _router: Router, private explorerService: ExplorerService) {
-    this.path = window.location.pathname.replace(/(^\/explorer)/gi, '');
-    this.setFilesList(this.path);
+  contextmenu = false;
+  contextmenuX = 0;
+  contextmenuY = 0;
+
+  constructor(private _router: Router, private explorerService: ExplorerService, private location: Location) {
+    location.subscribe(val => {
+      this.updatePathAndFiles();
+    });
+
+    this.updatePathAndFiles();
   }
 
   ngOnInit() {
-    
+
+  }
+
+  onRightClick(event: MouseEvent) {
+    event.preventDefault();
+
+    this.contextmenuX = event.clientX;
+    this.contextmenuY = event.clientY;
+    this.contextmenu = true;
+  }
+
+  disableContextMenu() {
+    this.contextmenu = false;
+  }
+
+  updatePathAndFiles() {
+    this.path = window.location.pathname.replace(/(^\/explorer)/gi, '');
+    this.setFilesList(this.path);
   }
 
   enterFile(path) {
@@ -33,7 +58,6 @@ export class ExplorerComponent implements OnInit {
   }
 
   setFilesList(path: string) {
-    console.log(path);
     return this.explorerService.getFiles(path).subscribe(data => {
       this.files = data;
     });

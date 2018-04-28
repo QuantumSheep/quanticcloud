@@ -72,85 +72,12 @@ main section {
     width: 100%;
 }
 
-ul.filelist {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    height: 100%;
-    width: 100%;
-    user-select: none;
-}
-
-ul.filelist li {
-    padding: 0;
-    display: inline-block;
-    vertical-align: top;
-}
-
-ul.filelist li a {
-    display: block;
-    color: #2c2c2c;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-    word-break: break-all;
-}
-
-ul.filelist li a:hover {
-    background-color: #e7e7e7;
-}
-
-ul.filelist li a img {
-    width: 100%;
-}
-
 .hide {
     display: none;
 }
 
 button, a:hover {
     cursor: pointer;
-}
-
-.rmenu {
-    z-index: 9999;
-    position: absolute;
-    background-color: #fbfbfb;
-}
-
-.rmenu,
-.rmenu ul {
-    border-radius: 3px;
-}
-
-.rmenu ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    border: 1px solid;
-    border-color: #9c9c9c;
-    background-color: #fefefe;
-    width: 180px;
-    box-shadow: 2px 2px 5px rgb(117, 117, 117);
-}
-
-.rmenu li {
-    list-style: none;
-}
-
-.rmenu a {
-    text-decoration: none;
-    padding: 10px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    display: block;
-    width: 100%;
-    color: rgb(22, 22, 22);
-}
-
-.rmenu a:hover {
-    background-color: #e4e4e4;
 }
 
 @media(max-width: 748px) {

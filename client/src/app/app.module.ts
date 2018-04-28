@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FilestreeComponent } from './filestree/filestree.component';
 
 import { ExplorerService } from './explorer/explorer.service';
+import { ContextMenuComponent } from './contextmenu/contextmenu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ExplorerService } from './explorer/explorer.service';
     PageNotFoundComponent,
     FilestreeComponent,
     ExplorerComponent,
-    HomeComponent
+    HomeComponent,
+    ContextMenuComponent
   ],
   imports: [
     AppRoutingModule,
